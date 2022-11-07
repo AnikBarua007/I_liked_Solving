@@ -1,0 +1,72 @@
+
+int main()
+{
+    int p;
+    cin>>p;
+    int primitive_count=0;
+    // Write your code here
+    for(int i=1;i<(p);i++){
+        int found=0;
+        int prev_result;
+        for(int j=0;j<=p-2;j++){
+                
+                int result=(int)(pow(i,j))%(int)p;
+                if(j==0){
+                    prev_result=result;
+                    continue;
+                } 
+                else{
+                    if(result==prev_result){
+                        found=1;
+                    }
+                }
+        }
+        if(found==0){
+            primitive_count++;
+            if(primitive_count==1){
+            cout<<i<<" ";    
+            } 
+        }
+    }
+    cout<<primitive_count;
+    return 0;
+}
+
+
+
+//solution fix
+#include <bits/stdc++.h>
+
+using namespace std;
+int main()
+{
+    int p;
+    cin>>p;
+    int primitive_count=0;
+    // Write your code here
+    for(int i=1;i<(p);i++){
+        int found=0;
+        vector<int>primitive;
+        for(int j=0;j<=p-2;j++){
+                int result=(int)(pow(i,j))%(int)p;
+                primitive.push_back(result);
+        }
+        for(int j=0;j<=p-2;j++){
+                for(int k=1;k<p-2;k++){
+                    if(primitive[j]==primitive[k]){
+                        found=1;
+                        break;
+                    }
+                }
+                if (found==1) break;
+        }
+        if(found==0){
+            primitive_count++;
+            if(primitive_count==1){
+            cout<<i<<" ";
+            }
+        }
+        }
+    cout<<primitive_count;
+    return 0;
+}
