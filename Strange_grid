@@ -1,0 +1,25 @@
+//strange grid hackerrank
+
+#include <bits/stdc++.h>
+using namespace std;
+long long int strangeGrid(long long int r, long long int c) {
+    r=r-1;
+    c=c-1;
+ long long int ini_element=0;
+if(r%2==0){
+    ini_element=5*r;
+}
+else {
+    ini_element=5*(r-1)+1;
+}
+long long int result=ini_element+c*2;
+return result;
+}
+
+int main()
+{
+    int r,c;
+    cin>>r>>c;
+    cout<<strangeGrid(r,c);
+    return 0;
+}
